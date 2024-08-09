@@ -2,3 +2,13 @@ We see three critical differences between programming and software engineering: 
 
 Comentário:
 De acordo com o texto os aspectos mais importantes para um engenheiro de software é a capacidade de organização, ou seja utilizar o tempo ao seu favor e a rapida adaptação de acordo com a situação que se encontra, buscando sempre a melhor entrega de resultados.
+
+Within Google, we sometimes say, “Software engineering is programming integrated over time.” Programming is certainly a significant part of software engineering: after all, programming is how you generate new software in the first place. If you accept this distinction, it also becomes clear that we might need to delineate between programming tasks (development) and software engineering tasks (development, modification, maintenance). The addition of time adds an important new dimension to programming. Cubes aren’t squares, distance isn’t velocity. Software engineering isn’t programming.
+
+Comentário:
+Aqui ele diz que de acordo com algumas fontes a engenharia de software é programação com alguns complementos, porem para ele, a programação é uma parte importante mas não é programação, engloba muito mias coisas como por exemplo o desenvolvimento a modificação e a manutenção do software. 
+
+trade-offS:
+1-
+2-
+3-
