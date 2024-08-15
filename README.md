@@ -9,8 +9,10 @@ Comentário:
 Aqui ele diz que de acordo com algumas fontes a engenharia de software é programação com alguns complementos, porem para ele, a programação é uma parte importante mas não é programação, engloba muito mias coisas como por exemplo o desenvolvimento a modificação e a manutenção do software. 
 
 trade-offS:
-1-exemplo de trade-off Python x Java - facilidade e sintaxe - Na linguagem de programação Python, temos uma sintaxe simples e clara, o que acelera o desenvolvimento. No entanto, por ser uma linguagem de alto nível, a comunicação com o hardware é mais complexa, tornando o Python menos adequado para projetos grandes e complexos em comparação com linguagens de nível mais baixo. Por outro lado, o Java, que é uma linguagem de nível mais baixo, tem uma sintaxe mais verbosa, mas fornece mais estrutura e uma maior portabilidade.
+1-exemplo de trade-off Python x Java - facilidade e sintaxe - Na linguagem de programação Python, temos uma sintaxe simples e clara, o que acelera o desenvolvimento. No entanto, por ser uma linguagem de alto nível, a comunicação com o hardware é mais complexa, tornando o Python menos adequado para projetos grandes e complexos em comparação com linguagens de nível mais baixo. Por outro lado, o Java, que é uma linguagem de nível mais baixo, tem uma sintaxe mais verbosa, fornecendo mais estrutura, uma maior portabilidade e maior velocidade.
 
 2-exemplo de trade-off Linux x Windowns - No sistema operacional Windows, há uma grande quantidade de recursos de segurança para usuários comuns. No entanto, Windows pode ser menos prático e mais difícil de manter em ambientes de servidores. Por outro lado, o Linux, embora possa ser mais desafiador para usuários comuns, se destaca na aplicação em servidores e projetos maiores, sendo geralmente mais leve e prático.
 
 3-
+
+entrar @alexxubyte pegar arquitetura real e discutir os trade-off da arquitetura (requisitos nao funcionais!), explicar por que é assim.
