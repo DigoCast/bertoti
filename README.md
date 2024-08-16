@@ -16,3 +16,4 @@ trade-offS:
 3-
 
 entrar @alexxubyte pegar arquitetura real e discutir os trade-off da arquitetura (requisitos nao funcionais!), explicar por que é assim.
+![netflix architecture](https://github.com/user-attachments/assets/31ede896-6722-400d-92ee-b6de7cd2761e)
