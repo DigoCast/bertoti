@@ -22,11 +22,11 @@ Trade-off -- Complexidade x
 
 4- UML x Java relação
 
-Código Album
+Código Album<br>
 import java.util.List;
 import java.util.LinkedList;
 
-public class Album {<br>
+public class Album
     private List<Musica> musicas = new LinkedList<Musica>();
     public void adicionarMusica(Musica musica) {
         musicas.add(musica);
