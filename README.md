@@ -22,7 +22,7 @@ Trade-off -- Complexidade x
 
 4- UML x Java relação
 
-Código Album
+Código Album<br>
 import java.util.List;<br>
 import java.util.LinkedList;<br>
 
@@ -30,35 +30,35 @@ public class Album {<br>
     private List<Musica> musicas = new LinkedList<Musica>();<br>
     public void adicionarMusica(Musica musica) {<br>
         musicas.add(musica);<br>
-    }
-    public List<Musica> buscarMusicaPorNome(String nome) {
-        List<Musica> encontrados = new LinkedList<>();
-        for (Musica musica : musicas) {
-            if (nome.equals(musica.getNome())) {
-                encontrados.add(musica);
-            }
-        }
-        return encontrados;
-    }
-}
+    }<br>
+    public List<Musica> buscarMusicaPorNome(String nome) {<br>
+        List<Musica> encontrados = new LinkedList<>();<br>
+        for (Musica musica : musicas) {<br>
+            if (nome.equals(musica.getNome())) {<br>
+                encontrados.add(musica);<br>
+            }<br>
+        }<br>
+        return encontrados;<br>
+    }<br>
+}<br>
 
-Codigo Musica
-public class Musica {
-    private String nome;
-    private String duracao;
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        nome = nome;
-    }
-    public String getDuracao() {
-        return duracao;
-    }
-    public void setDuracao(String duracao) {
-        duracao = duracao;
-    }
-}
+Codigo Musica<br>
+public class Musica {<br>
+    private String nome;<br>
+    private String duracao;<br>
+    public String getNome() {<br>
+        return nome;<br>
+    }<br>
+    public void setNome(String nome) {<br>
+        nome = nome;<br>
+    }<br>
+    public String getDuracao() {<br>
+        return duracao;<br>
+    }<br>
+    public void setDuracao(String duracao) {<br>
+        duracao = duracao;<br>
+    }<br>
+}<br>
 
 ![image](https://github.com/user-attachments/assets/edbc484d-7c1c-43ee-9b9d-4816cbb8b6e9)
 
