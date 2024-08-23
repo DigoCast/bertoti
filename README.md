@@ -23,13 +23,13 @@ Trade-off -- Complexidade x
 4- UML x Java relação
 
 Código Album
-import java.util.List;
-import java.util.LinkedList;
+import java.util.List;<br>
+import java.util.LinkedList;<br>
 
-public class Album {
-    private List<Musica> musicas = new LinkedList<Musica>();
-    public void adicionarMusica(Musica musica) {
-        musicas.add(musica);
+public class Album {<br>
+    private List<Musica> musicas = new LinkedList<Musica>();<br>
+    public void adicionarMusica(Musica musica) {<br>
+        musicas.add(musica);<br>
     }
     public List<Musica> buscarMusicaPorNome(String nome) {
         List<Musica> encontrados = new LinkedList<>();
@@ -59,5 +59,6 @@ public class Musica {
         duracao = duracao;
     }
 }
+
 ![image](https://github.com/user-attachments/assets/edbc484d-7c1c-43ee-9b9d-4816cbb8b6e9)
 
