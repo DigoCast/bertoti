@@ -19,3 +19,45 @@ entrar @alexxubyte pegar arquitetura real e discutir os trade-off da arquitetura
 ![netflix architecture](https://github.com/user-attachments/assets/31ede896-6722-400d-92ee-b6de7cd2761e)
 
 Trade-off -- Complexidade x 
+
+4- UML x Java relação
+
+Código Album
+import java.util.List;
+import java.util.LinkedList;
+
+public class Album {
+    private List<Musica> musicas = new LinkedList<Musica>();
+    public void adicionarMusica(Musica musica) {
+        musicas.add(musica);
+    }
+    public List<Musica> buscarMusicaPorNome(String nome) {
+        List<Musica> encontrados = new LinkedList<>();
+        for (Musica musica : musicas) {
+            if (nome.equals(musica.getNome())) {
+                encontrados.add(musica);
+            }
+        }
+        return encontrados;
+    }
+}
+
+Codigo Musica
+public class Musica {
+    private String nome;
+    private String duracao;
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        nome = nome;
+    }
+    public String getDuracao() {
+        return duracao;
+    }
+    public void setDuracao(String duracao) {
+        duracao = duracao;
+    }
+}
+![image](https://github.com/user-attachments/assets/edbc484d-7c1c-43ee-9b9d-4816cbb8b6e9)
+
