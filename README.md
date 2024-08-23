@@ -23,42 +23,44 @@ Trade-off -- Complexidade x
 4- UML x Java relação
 
 Código Album<br>
-import java.util.List;
-import java.util.LinkedList;
 
-public class Album
-    private List<Musica> musicas = new LinkedList<Musica>();
-    public void adicionarMusica(Musica musica) {
-        musicas.add(musica);
-    }
-    public List<Musica> buscarMusicaPorNome(String nome) {
-        List<Musica> encontrados = new LinkedList<>();
-        for (Musica musica : musicas) {
-            if (nome.equals(musica.getNome())) {
-                encontrados.add(musica);
-            }
+    import java.util.List;
+    import java.util.LinkedList;
+
+    public class Album {
+        private List<Musica> musicas = new LinkedList<Musica>();
+        public void adicionarMusica(Musica musica) {
+            musicas.add(musica);
         }
-        return encontrados;
+        public List<Musica> buscarMusicaPorNome(String nome) {
+            List<Musica> encontrados = new LinkedList<>();
+            for (Musica musica : musicas) {
+                if (nome.equals(musica.getNome())) {
+                    encontrados.add(musica);
+                }
+            }
+            return encontrados;
+        }
     }
-}
 
 Codigo Musica<br>
-public class Musica {
-    private String nome;
-    private String duracao;
-    public String getNome() {
-        return nome;
+
+    public class Musica {
+        private String nome;
+        private String duracao;
+        public String getNome() {
+            return nome;
+        }
+        public void setNome(String nome) {
+            nome = nome;
+        }
+        public String getDuracao() {
+            return duracao;
+        }
+        public void setDuracao(String duracao) {
+            duracao = duracao;
+        }
     }
-    public void setNome(String nome) {
-        nome = nome;
-    }
-    public String getDuracao() {
-        return duracao;
-    }
-    public void setDuracao(String duracao) {
-        duracao = duracao;
-    }
-}<br>
 
 ![image](https://github.com/user-attachments/assets/edbc484d-7c1c-43ee-9b9d-4816cbb8b6e9)
 
