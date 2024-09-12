@@ -13,12 +13,16 @@ trade-offS:
 
 2-exemplo de trade-off Linux x Windowns - No sistema operacional Windows, há uma grande quantidade de recursos de segurança para usuários comuns. No entanto, Windows pode ser menos prático e mais difícil de manter em ambientes de servidores. Por outro lado, o Linux, embora possa ser mais desafiador para usuários comuns, se destaca na aplicação em servidores e projetos maiores, sendo geralmente mais leve e prático.
 
-3-
+3-exemplo de trade-off Desempenho x Manutenibilidade - Na programação, optar por códigos mais avançados e otimizados pode melhorar significativamente o desempenho do sistema. No entanto, essa abordagem frequentemente resulta em uma maior complexidade no código, o que pode tornar sua compreensão e manutenção mais difíceis. Em outras palavras, enquanto códigos mais complexos podem oferecer ganhos de desempenho, eles também podem comprometer a clareza e a facilidade de manutenção, exigindo um equilíbrio cuidadoso entre eficiência e legibilidade.
 
 entrar @alexxubyte pegar arquitetura real e discutir os trade-off da arquitetura (requisitos nao funcionais!), explicar por que é assim.
 ![netflix architecture](https://github.com/user-attachments/assets/31ede896-6722-400d-92ee-b6de7cd2761e)
 
-Trade-off -- Complexidade x 
+Trade-off -- No passado, a Netflix utilizava uma arquitetura monolítica devido à sua baixa complexidade e ao tamanho relativamente pequeno da aplicação. À medida que a empresa cresceu e a demanda por seus serviços aumentou significativamente, essa arquitetura começou a apresentar limitações. Para enfrentar a escalabilidade e a flexibilidade necessárias para suportar o aumento no tráfego e na variedade de serviços, a Netflix decidiu adotar uma arquitetura de microserviços.
+
+A transição para uma arquitetura de microserviços envolveu a divisão da aplicação em componentes menores e independentes, cada um responsável por uma funcionalidade específica. Embora isso tenha introduzido uma maior complexidade no sistema, com desafios adicionais em termos de comunicação entre serviços e gerenciamento de dados distribuídos, os benefícios superaram as dificuldades. A arquitetura de microserviços proporcionou à Netflix maior escalabilidade, resiliência e agilidade no desenvolvimento e implantação de novos recursos. Com essa abordagem, a empresa conseguiu atender de forma mais eficaz a uma base de usuários em expansão e melhorar a qualidade geral do serviço.
+
+Em resumo, a escolha de migrar de uma arquitetura monolítica para uma de microserviços foi um trade-off necessário para a Netflix, permitindo que a empresa gerenciasse melhor a complexidade crescente e continuasse a inovar e escalar seus serviços de maneira eficiente.
 
 4- UML x Java relação
 
