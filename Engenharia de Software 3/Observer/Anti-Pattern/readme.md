@@ -1,5 +1,5 @@
-# Pattern (Observer):
-O padrão Observer é um padrão de projeto comportamental que define uma relação de dependência um-para-muitos entre objetos, de forma que quando o estado de um objeto (sujeito) muda, todos os seus dependentes (observadores) são notificados automaticamente. Ele é usado para desacoplar o objeto que gera a mudança daqueles que precisam reagir a ela, permitindo que novos observadores sejam adicionados ou removidos sem alterar o código do sujeito. Esse padrão é comum em sistemas baseados em eventos, interfaces gráficas e notificações, pois facilita a comunicação entre componentes sem criar dependências diretas.
+# Anti-Pattern (Observer):
+O anti-padrão do Observer ocorre quando sua aplicação causa acoplamento excessivo, vazamentos de memória ou complexidade desnecessária. Isso acontece, por exemplo, quando o sujeito mantém observadores que nunca são removidos, gerando consumo desnecessário de recursos; quando as notificações são muito frequentes, afetando a performance; ou quando os observadores passam a depender da ordem de atualização, criando comportamentos imprevisíveis. Nesse caso, o padrão perde seu propósito de simplicidade e baixo acoplamento, tornando o sistema difícil de manter e depurar.
 
 ## Exemplo pratico em java:
 
@@ -7,68 +7,56 @@ O padrão Observer é um padrão de projeto comportamental que define uma relaç
 import java.util.ArrayList;
 import java.util.List;
 
-// Interface Observer
-interface Observer {
-    void update(String mensagem);
-}
+// Implementação incorreta
+class CanalRuim {
+    private List<UsuarioRuim> usuarios = new ArrayList<>();
 
-// Interface Subject
-interface Subject {
-    void adicionar(Observer o);
-    void remover(Observer o);
-    void notificar(String mensagem);
-}
-
-// Classe concreta do Subject
-class Canal implements Subject {
-    private List<Observer> inscritos = new ArrayList<>();
-
-    @Override
-    public void adicionar(Observer o) {
-        inscritos.add(o);
+    public void adicionar(UsuarioRuim u) {
+        usuarios.add(u);
     }
 
-    @Override
-    public void remover(Observer o) {
-        inscritos.remove(o);
-    }
-
-    @Override
-    public void notificar(String mensagem) {
-        for (Observer o : inscritos) {
-            o.update(mensagem);
+    // Notificação feita de forma ineficiente e acoplada
+    public void publicarVideo(String titulo) {
+        System.out.println("Publicando vídeo: " + titulo);
+        for (UsuarioRuim u : usuarios) {
+            // Fazendo chamada direta e pesada
+            u.receberVideo(titulo);
         }
     }
 }
 
-// Classe concreta do Observer
-class Usuario implements Observer {
+// Observador mal implementado
+class UsuarioRuim {
     private String nome;
 
-    public Usuario(String nome) {
+    public UsuarioRuim(String nome) {
         this.nome = nome;
     }
 
-    @Override
-    public void update(String mensagem) {
-        System.out.println(nome + " recebeu notificação: " + mensagem);
+    public void receberVideo(String titulo) {
+        // Lógica pesada e dependente da ordem
+        System.out.println(nome + " está processando o vídeo " + titulo + " (isso pode travar o sistema!)");
+        try {
+            Thread.sleep(2000); // Simula demora
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 
-// Demonstração do padrão
-public class ExemploPattern {
+// Demonstração do mau uso
+public class ExemploAntiPattern {
     public static void main(String[] args) {
-        Canal canal = new Canal();
+        CanalRuim canal = new CanalRuim();
+        canal.adicionar(new UsuarioRuim("Diego"));
+        canal.adicionar(new UsuarioRuim("Marcos"));
 
-        Usuario u1 = new Usuario("Diego");
-        Usuario u2 = new Usuario("Marcos");
-
-        canal.adicionar(u1);
-        canal.adicionar(u2);
-
-        canal.notificar("Novo vídeo disponível!");
+        canal.publicarVideo("Tutorial de Java");
     }
 }
 
 ```
-O sujeito (Canal) não sabe nada sobre os observadores além da interface Observer. Os observadores podem ser adicionados ou removidos livremente, mantendo baixo acoplamento e alta flexibilidade.
+- O canal depende diretamente da classe UsuarioRuim, sem interface — há acoplamento forte.
+- Cada observador faz tarefas demoradas dentro da notificação, o que trava o sistema.
+- Nenhum método para remover observadores — risco de vazamento de memória.
+- Ordem de execução importa, o que quebra a independência dos observadores.
