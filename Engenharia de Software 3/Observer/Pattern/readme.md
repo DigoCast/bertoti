@@ -1,6 +1,43 @@
 # Pattern (Observer):
 O padrão Observer é um padrão de projeto comportamental que define uma relação de dependência um-para-muitos entre objetos, de forma que quando o estado de um objeto (sujeito) muda, todos os seus dependentes (observadores) são notificados automaticamente. Ele é usado para desacoplar o objeto que gera a mudança daqueles que precisam reagir a ela, permitindo que novos observadores sejam adicionados ou removidos sem alterar o código do sujeito. Esse padrão é comum em sistemas baseados em eventos, interfaces gráficas e notificações, pois facilita a comunicação entre componentes sem criar dependências diretas.
 
+## Diagrama UML:
+```mermaid
+classDiagram
+    direction LR
+    %% Interfaces
+    class Observer {
+        <<interface>>
+        +update(mensagem: String)
+    }
+
+    class Subject {
+        <<interface>>
+        +adicionar(o: Observer)
+        +remover(o: Observer)
+        +notificar(mensagem: String)
+    }
+
+    %% Classes Concretas
+    class Canal {
+        -inscritos: List~Observer~
+        +adicionar(o: Observer)
+        +remover(o: Observer)
+        +notificar(mensagem: String)
+    }
+
+    class Usuario {
+        -nome: String
+        +Usuario(nome: String)
+        +update(mensagem: String)
+    }
+
+    %% Relacionamentos
+    Subject <|.. Canal : Implementa
+    Observer <|.. Usuario : Implementa
+    Canal *--> Observer : Contém
+```
+
 ## Exemplo pratico em java:
 
 ```java

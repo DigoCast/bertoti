@@ -1,6 +1,25 @@
 # Anti-Pattern (Observer):
 O anti-padrão do Observer ocorre quando sua aplicação causa acoplamento excessivo, vazamentos de memória ou complexidade desnecessária. Isso acontece, por exemplo, quando o sujeito mantém observadores que nunca são removidos, gerando consumo desnecessário de recursos; quando as notificações são muito frequentes, afetando a performance; ou quando os observadores passam a depender da ordem de atualização, criando comportamentos imprevisíveis. Nesse caso, o padrão perde seu propósito de simplicidade e baixo acoplamento, tornando o sistema difícil de manter e depurar.
 
+## Diagrama UML:
+```mermaid
+classDiagram
+    class CanalRuim {
+        -usuarios: List~UsuarioRuim~
+        +adicionar(u: UsuarioRuim)
+        +publicarVideo(titulo: String)
+    }
+
+    class UsuarioRuim {
+        -nome: String
+        +UsuarioRuim(nome: String)
+        +receberVideo(titulo: String)
+    }
+
+    %% Relacionamentos
+    CanalRuim --> UsuarioRuim : Dependência/Acoplamento Forte
+```
+
 ## Exemplo pratico em java:
 
 ```java

@@ -1,6 +1,43 @@
 <h2>Strategy - Pattern</h2>
 
-<p>O padrão Strategy é potencializado ao ser combinado com outros padrões, como o Factory, que encapsula a lógica de qual estratégia escolher, desacoplando o código cliente. Ele também pode atuar em conjunto com o State para gerenciar mudanças de comportamento controladas internamente pelo objeto, ou com o Flyweight para compartilhar instâncias de estratégias sem estado, otimizando o uso de memória. Essas sinergias criam sistemas mais flexíveis e de fácil manutenção.</p>
+<p>O padrão Strategy é um padrão de projeto comportamental que transforma famílias de algoritmos em objetos intercambiáveis. Ele é usado para evitar o uso de condicionais extensas (if/else ou switch-case) ao permitir que o comportamento seja selecionado em tempo de execução, delegando a responsabilidade de execução para um objeto Strategy que implementa uma interface comum. Isso adere ao Princípio Aberto/Fechado (OCP), pois novos comportamentos podem ser adicionados sem modificar o código do objeto Contexto.</p>
+
+<h4>Exemplo UML:</h4>
+
+```mermaid
+classDiagram
+    direction LR
+    class Pedido {
+        -peso : double
+        -estrategiaDeFrete : FreteStrategy
+        +setEstrategiaDeFrete(s: FreteStrategy)
+        +calcularFrete() : double
+    }
+
+    class FreteStrategy {
+        <<interface>>
+        +calcular(pesoEmKg : double) : double
+    }
+
+    class FreteNormal {
+        +calcular(pesoEmKg : double) : double
+    }
+
+    class FreteExpresso {
+        +calcular(pesoEmKg : double) : double
+    }
+
+    class FreteRetiradaLocal {
+        +calcular(pesoEmKg : double) : double
+    }
+
+    %% Relacionamentos
+    Pedido *--> FreteStrategy : Referência
+    FreteStrategy <|.. FreteNormal : Implementa
+    FreteStrategy <|.. FreteExpresso : Implementa
+    FreteStrategy <|.. FreteRetiradaLocal : Implementa
+```
+
 
 <h4>Exemplo em codigo:</h4>
 

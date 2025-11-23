@@ -4,33 +4,49 @@
 
 <h4>Exemplo em codigo:</h4>
 
-```java
-public interface ValidacaoIdadeStrategy {
-    boolean validar(int idade);
-}
+```mermaid
+classDiagram
+    direction LR
+    class ValidacaoIdadeStrategy {
+        <<interface>>
+        +validar(idade : int) : boolean
+    }
 
-public class ValidacaoMaioridade implements ValidacaoIdadeStrategy {
-    @Override
-    public boolean validar(int idade) {
-        return idade >= 18;
-    }
-}
+    class ValidacaoMaioridade {
+        +validar(idade : int) : boolean
+    }
 
-public class UsuarioValidador {
-    private ValidacaoIdadeStrategy strategy = new ValidacaoMaioridade(); 
+    class UsuarioValidador {
+        -strategy : ValidacaoIdadeStrategy
+        +eValido(idade : int) : boolean
+    }
 
-    public boolean eValido(int idade) {
-        return strategy.validar(idade);
-    }
-}
+    %% Diagrama para o seu Anti-Pattern de sobre-engenharia
+    UsuarioValidador --> ValidacaoMaioridade : Acoplamento Forte no Construtor
+    ValidacaoIdadeStrategy <|.. ValidacaoMaioridade : Implementa
 ```
 
+<h4>Exemplo em codigo:</h4>
+
 ```java
-public class Aplicacao {
+// Anti-Pattern: Sobre-Engenharia (Over-Engineering)
+// O Strategy é usado onde um simples condicional resolve.
+
+public class UsuarioValidadorSimples {
+    public boolean eMaiorIdade(int idade) {
+        if (idade >= 18) {
+            return true;
+        }
+        return false;
+    }
+}
+
+public class AplicacaoAntiPattern {
     public static void main(String[] args) {
-        UsuarioValidador validador = new UsuarioValidador();
-        System.out.println("Usuário com 20 anos é válido? " + validador.eValido(20)); 
-        System.out.println("Usuário com 17 anos é válido? " + validador.eValido(17)); 
+        UsuarioValidadorSimples validador = new UsuarioValidadorSimples();
+        System.out.println("Usuário com 20 anos é válido? " + validador.eMaiorIdade(20));
+        // Se a lógica mudar (ex: maioridade aos 21), apenas um if é modificado.
+        // Se fosse Strategy, 3 arquivos seriam criados/modificados desnecessariamente.
     }
 }
 ```
