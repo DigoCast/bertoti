@@ -21,48 +21,6 @@
 
 - Controller (Strategy): O Controller encapsula a estratégia de como a entrada do usuário será convertida em uma ação do Model (Ex: salvar, deletar, formatar). Diferentes controladores (estratégias) podem ser usados para diferentes interações, sem alterar o Model ou a View.</p>
   
-<h3>Exemplo UML:</h3>
-
-```mermaid
-classDiagram
-    direction LR
-    %% Interfaces
-    class ModelObservable {
-        <<interface>>
-        +addObserver(o: Observer)
-        +removeObserver(o: Observer)
-        +notificar()
-    }
-    class ViewObserver {
-        <<interface>>
-        +update()
-    }
-
-    %% Componentes Concretos
-    class DadosModel {
-        -observers : List~ViewObserver~
-        -estado : String
-        +getDados()
-        +setDados(d: String)
-    }
-
-    class TelaView {
-        -model : DadosModel
-        +update()
-        +exibir()
-    }
-
-    class Controlador {
-        -model : DadosModel
-        +processarEntrada(input: String)
-    }
-
-    %% Relacionamentos
-    ViewObserver <|.. TelaView : Implementa
-    DadosModel *--> ViewObserver : Contém Observers
-    DadosModel <-- TelaView : Referência
-    DadosModel <-- Controlador : Referência
-```
 
 <h3>Exemplo em codigo:</h3>
 
